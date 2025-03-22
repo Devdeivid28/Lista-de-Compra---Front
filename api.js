@@ -1,6 +1,6 @@
 class ApiConection{
 
-    url = "http://localhost:3333/produtos"
+    url = "http://localhost:8888/produtos"
 
     async listar(){
     const response =  await fetch(this.url)

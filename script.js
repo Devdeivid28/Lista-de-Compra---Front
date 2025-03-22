@@ -44,7 +44,10 @@ async function carregarPagina(){
     
     dados.forEach(produto => {
 
+                //Selecionando a DIV List onde fica os item
                 const list = document.querySelector(".list")
+
+                //Parte 01 do item
                 const newItem = document.createElement("div")
                 newItem.classList.add("item")
         
@@ -60,12 +63,21 @@ async function carregarPagina(){
         
                 wrapper.appendChild(p)
                 wrapper.appendChild(span)
-        
-                //description.appendChild(button);
-                description.appendChild(criarButton(produto.id))
+
+                const imgCateg = document.createElement("img")
+                imgCateg.classList.add("categ")
+                imgCateg.src = VerificarCategoria(produto.categoria)
+
+                description.appendChild(imgCateg)
                 description.appendChild(wrapper)
+
+                //Parte 2 do Item
+                const detail = document.createElement("div")
+                detail.classList.add("detail")
+                detail.appendChild(criarButton(produto.id))
         
                 newItem.appendChild(description)
+                newItem.appendChild(detail)
         
                 // Adicionando o novo item à lista
                 list.appendChild(newItem)
@@ -84,7 +96,8 @@ function criarButton(id){
     const button = document.createElement("button")
     button.classList.add("lixeiro")
     const img = document.createElement("img")
-    img.src = "Lixeiro.png"
+    img.classList.add("lixo")
+    img.src = "LixoC.png"
     button.appendChild(img)
 
     button.addEventListener("click", async() => {
@@ -94,6 +107,20 @@ function criarButton(id){
         carregarPagina()
     })
     return button;
+}
+
+function VerificarCategoria(categoria){
+    if (categoria == "Bebida")
+        return "/IMG Categorias/Bebida.png"
+    else if (categoria == "Fruta")
+        return "/IMG Categorias/Fruta.png"
+    else if (categoria == "Padaria")
+        return "/IMG Categorias/Padaria.png"
+    else if (categoria == "Carne")
+        return "/IMG Categorias/Carne.png"
+    else if (categoria == "Legume")
+        return "/IMG Categorias/Legume.png"
+
 }
 
 carregarPagina()

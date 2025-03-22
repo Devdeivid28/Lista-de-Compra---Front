@@ -175,8 +175,13 @@
     gap: 1rem;
   }
   
-  img{
-    height: 2em;
+  .categ{
+    height: 2.6em;
+  }
+
+  .lixo{
+    height: 1.7em;
+    cursor: pointer;
   }
 
   .lixeiro{
@@ -184,11 +189,7 @@
     background: none;
     padding: 0;
     display: inline-block;
-    cursor: pointer;
   }
-
-  
-
 
   .list .item .description p {
     color: var(--base-gray-100);
