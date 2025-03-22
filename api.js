@@ -1,6 +1,6 @@
 class ApiConection{
 
-    url = "http://localhost:8888/produtos"
+    url = "https://lista-de-compra-iz2o.onrender.com"
 
     async listar(){
     const response =  await fetch(this.url)
